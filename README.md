@@ -10,7 +10,7 @@ Features:
 - ✅ SEO-friendly with canonical URLs and OpenGraph data
 - ✅ Sitemap support
 - ✅ MicroCMS surpported
-  - `microcms` branche
+  - `microcms` branch
 
 ![100/100 Lighthouse performance](/image.png)
 
@@ -53,13 +53,7 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Deploy
-
-- Deployment is done using cloud flare
-- Deployment is done using SSR in the preview function
-- Automatic deployment is enabled.
-
 ## Other
 
 - Make sure you have a `.env` file on hand based on the `.env.example` file
-  - `microcms` branche
+  - `microcms` branch
