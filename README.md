@@ -10,7 +10,7 @@ Features:
 - ✅ SEO-friendly with canonical URLs and OpenGraph data
 - ✅ Sitemap support
 - ✅ MicroCMS surpported
-  - `feature/microCMS`
+  - `microcms` branche
 
 ![100/100 Lighthouse performance](/image.png)
 
@@ -62,4 +62,4 @@ All commands are run from the root of the project, from a terminal:
 ## Other
 
 - Make sure you have a `.env` file on hand based on the `.env.example` file
-  - `feature/microCMS`
+  - `microcms` branche
