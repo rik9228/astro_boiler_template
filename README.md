@@ -1,7 +1,7 @@
-# Motiovation Blog Astro Starter Kit
+# Astro Boiler Template
 
 ```sh
-npm create astro@latest -- --template
+npm create astro@latest -- --template rik9228/astro_boiler_template
 ```
 
 Features:
