@@ -1,7 +1,6 @@
 {
   "name": "astro_boiler_template",
   "version": "1.0.0",
-  "description": "```sh npm create astro@latest -- --template ```",
   "main": "index.js",
   "scripts": {
     "dev": "astro dev",
