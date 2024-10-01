@@ -1,0 +1,14 @@
+// ------------------------------------------- SASS Information
+//  Name:      mixins/_areaMiximixe.scss
+//  Description: エリアの領域を対象の親要素全域に広げる
+//  Author:    Riku Morishita
+// -----------------------------------------------------------
+@mixin areaMaximixe() {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

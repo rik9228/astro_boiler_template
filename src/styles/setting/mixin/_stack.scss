@@ -1,0 +1,28 @@
+// ------------------------------------------- SASS Information
+//  Name:      mixins/_stack.scss
+//  Author:    Riku Morishita
+// -----------------------------------------------------------
+
+@use '../mixin/font-size' as *;
+@use '../mixin/media-query' as *;
+
+@mixin VStack($gap: 8) {
+  display: flex;
+  flex-direction: column;
+  gap: #{$gap}px;
+}
+
+@mixin VStack_vwMin($gap: 8, $viewport: 375) {
+  display: flex;
+  flex-direction: column;
+  gap: min(get_vw($gap, $viewport), #{$gap}px);
+}
+@mixin HStack($gap: 8) {
+  display: flex;
+  gap: #{$gap}px;
+}
+
+@mixin HStack_vwMin($gap: 8, $viewport: 375) {
+  display: flex;
+  gap: min(get_vw($gap, $viewport), #{$gap}px);
+}

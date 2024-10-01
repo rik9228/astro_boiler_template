@@ -1,0 +1,20 @@
+@use '../variable/breakpoints' as *;
+/* ========================================
+  Media Query Mixin
+  @param {String} $breakpoints - Class infix like 'sm', 'md'
+  Note: Check out a breakpoints file if you want to modify breakpoints.
+  ex: @include media-query(xl) {...}
+======================================== */
+
+@mixin mq($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media screen and #{inspect(map-get($breakpoints, $size))} {
+      @content;
+    }
+  }
+
+  // Error handling
+  @else {
+    @error "The breakpoint is not defined. Please check out 'scss/foundation/variable/breakpoint'.";
+  }
+}

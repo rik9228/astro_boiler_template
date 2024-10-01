@@ -1,0 +1,7 @@
+@use '../setting' as *;
+
+.l-container {
+  max-width: 640px;
+  width: calc(100% - get_vw(25) * 2);
+  margin-inline: auto;
+}

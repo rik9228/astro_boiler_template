@@ -1,0 +1,39 @@
+{
+  "name": "astro_boiler_template",
+  "version": "1.0.0",
+  "description": "```sh npm create astro@latest -- --template ```",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/sitemap": "^3.1.6",
+    "@types/react": "^18.3.7",
+    "@types/react-dom": "^18.3.0",
+    "@uiw/react-heat-map": "^2.2.2",
+    "@uiw/react-tooltip": "^4.22.3",
+    "astro": "^4.15.7",
+    "date-fns": "^4.1.0",
+    "microcms-js-sdk": "^3.1.2",
+    "microcms-ts-sdk": "^1.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.79.1",
+    "typescript": "^5.6.2",
+    "zenn-content-css": "^0.1.157"
+  },
+  "devDependencies": {
+    "@astrojs/cloudflare": "^11.0.5",
+    "@biomejs/biome": "1.9.1",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

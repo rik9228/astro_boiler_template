@@ -1,0 +1,46 @@
+@use 'sass:math';
+
+// ------------------------------------------- SASS Information
+//  Name:      mixins/_fontSize.scss
+//  Author:    Riku Morishita
+// -----------------------------------------------------------
+
+@mixin fontSize($fontSize) {
+  font-size: $fontSize + px;
+}
+
+@function get_vw($size, $viewport: 375) {
+  @return math.div($size, $viewport) * 100 + vw;
+}
+
+@mixin fontSize_vw($font_size: 16) {
+  font-size: math.div($font-size, 2) + px;
+  font-size: get_vw($font_size);
+}
+
+// font-size: min(get_vw($size, 1440), 16px);
+
+/**
+ * @mixin fontSizeVwMin
+ * フォントサイズをビューポート幅に基づいて最小値で設定するミックスイン
+ * 
+ * @param {Number} $fontSize - 基本フォントサイズ
+ * @param {Number} $viewport - ビューポート幅
+ */
+@mixin fontSize_vwMin($fontSize: 16, $viewport: 1440) {
+  font-size: math.div($fontSize, 2) + px;
+  font-size: min(get_vw($fontSize, $viewport), #{$fontSize}px);
+}
+
+@mixin fontSize_cvw($font_size: 16, $viewport: 750) {
+  font-size: math.div($font-size, 2) + px;
+  font-size: get_vw($font_size, $viewport);
+}
+
+@mixin lineHeight($size: 32, $font_size: 16) {
+  line-height: math.div($size, $font-size);
+}
+
+@mixin letterSpacing($size: 80) {
+  letter-spacing: math.div($size, 1000) + em;
+}
