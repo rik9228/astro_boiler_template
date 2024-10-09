@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "gen:component": "scaffdog generate"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -23,7 +24,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.1",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "scaffdog": "^4.1.0"
   },
   "keywords": [],
   "author": "",
