@@ -7,6 +7,9 @@ ignore: []
 questions:
   module: 'enter directory name（Ex: Button, Drawer ..）'
   name: 'enter component name'
+  script:
+    confirm: 'Do you need a script files?'
+    initial: false
 ---
 
 # `{{ inputs.module | pascal }}/{{ inputs.name | pascal }}.astro`
@@ -15,6 +18,10 @@ questions:
 ---
 
 ---
+
+<style>
+  @import './{{ inputs.module | pascal }}.scss';
+</style>
 
 <></>
 ```
@@ -29,4 +36,10 @@ questions:
 // -----------------------------------------------------------
 
 @use '../../../styles/setting/' as *;
+```
+
+# `{{ inputs.script || "!" }}{{ inputs.module | pascal }}/{{ inputs.name | pascal }}.ts`
+
+```typescript
+// ...
 ```
