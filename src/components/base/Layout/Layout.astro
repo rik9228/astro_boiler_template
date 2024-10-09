@@ -4,8 +4,9 @@ interface Props {
   description?: string;
 }
 
-import BaseHead from '@/layouts/BaseHead.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
+import BaseHead from '@/components/base/BaseHead/BaseHead.astro';
+
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/scripts/consts';
 const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 ---
 

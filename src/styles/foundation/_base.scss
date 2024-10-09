@@ -13,23 +13,23 @@
 }
 
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: 'Atkinson';
+  src: url('/fonts/atkinson-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: 'Atkinson';
+  src: url('/fonts/atkinson-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 html {
-  font-family: 'Atkinson' ,'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo,
-    sans-serif;
+  font-family: 'Atkinson', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
+    Meiryo, sans-serif;
   font-weight: 700;
   color: var(--color-gray);
 }
@@ -51,5 +51,19 @@ main {
   }
   @include mq(md) {
     padding: min(get_vw(40, 767), 40px) 0;
+  }
+}
+
+/**
+* a11y style
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  *::backdrop {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
   }
 }
