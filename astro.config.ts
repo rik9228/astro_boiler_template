@@ -3,22 +3,24 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 // @ts-check
 import { defineConfig } from "astro/config";
+import { SITE_COMPRESSED } from "./src/scripts/consts";
 
 // https://astro.build/config
 export default defineConfig({
-	// compressHTML: false, // HTMLを圧縮する場合はこちらを変更
+	compressHTML: SITE_COMPRESSED && true, // HTMLを圧縮する場合はこちらを変更
 	site: "https://example.com",
 	integrations: [sitemap(), react()],
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
-		inlineStylesheets: "never",
+		inlineStylesheets: SITE_COMPRESSED ? "always" : "never",
 	},
 	vite: {
 		build: {
-			// minify: false,
+			minify: SITE_COMPRESSED && true,
 			rollupOptions: {
 				output: {
-					assetFileNames: (assetInfo) => {
+					// biome-ignore lint:
+					assetFileNames: (assetInfo: any) => {
 						const extType = assetInfo.name.split(".").at(-1);
 						if (/css/i.test(extType)) {
 							//assetInfo.sourceの中から文字列を探して値を取得する
@@ -45,7 +47,7 @@ export default defineConfig({
 		css: {
 			preprocessorOptions: {
 				scss: {
-					// additionalData: '@use "src/styles/setting" as *;',
+					additionalData: '@use "src/styles/setting" as *;',
 					api: "modern-compiler",
 				},
 			},

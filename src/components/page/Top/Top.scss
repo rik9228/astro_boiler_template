@@ -4,4 +4,8 @@
 //  Author:    Riku Morishita
 // -----------------------------------------------------------
 
-@use '../../../styles/setting/' as *;
+// @use '../../../styles/setting/' as *;
+
+h1 {
+  @include areaMaximixe;
+}
