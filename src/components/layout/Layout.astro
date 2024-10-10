@@ -22,6 +22,9 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
   <body>
     <slot />
 
+    <!-- .astro で 独自に実行する場合は、ファイル名Layout.astro_astro_type_script_index_0_lang.BrJN-ZXM のようなファイル名として生成される。 -->
+    <!-- それぞれのページで単純に.ts ファイルを読み込んで実行する場合は、ファイル名.hash.js として生成される。 -->
+
     <!-- <script>
       import { fixViewport } from 'src/scripts/util/fixViewport';
 
