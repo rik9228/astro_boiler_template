@@ -15,6 +15,7 @@ export default defineConfig({
 	},
 	vite: {
 		build: {
+			// minify: false,
 			rollupOptions: {
 				output: {
 					assetFileNames: (assetInfo) => {
