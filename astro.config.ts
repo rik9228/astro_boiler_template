@@ -12,13 +12,30 @@ export default defineConfig({
 	integrations: [sitemap(), react()],
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
-		inlineStylesheets: SITE_COMPRESSED ? "always" : "never",
+		inlineStylesheets: "never",
 	},
 	vite: {
 		build: {
 			minify: SITE_COMPRESSED && true,
 			rollupOptions: {
 				output: {
+					entryFileNames: (entryInfo) => {
+						// .astroファイルのパスを抽出
+						const astroPath = entryInfo.moduleIds.find((id) =>
+							id.includes(".astro"),
+						);
+						if (astroPath) {
+							const match = astroPath.match(/([^/?]+)\.astro/);
+							let result = match ? match[1] : null;
+							if (result) {
+								// ファイル名の先頭を小文字に変換
+								result = result.charAt(0).toLowerCase() + result.slice(1);
+								return `assets/js/${result}.js`;
+							}
+						}
+						// .astroファイルでない場合はデフォルトの命名規則を使用
+						return "assets/js/[name].js";
+					},
 					// biome-ignore lint:
 					assetFileNames: (assetInfo: any) => {
 						const extType = assetInfo.name.split(".").at(-1);
