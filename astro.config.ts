@@ -13,6 +13,7 @@ export default defineConfig({
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
 		inlineStylesheets: "never",
+		assets: "assets/js",
 	},
 	vite: {
 		build: {
@@ -20,6 +21,7 @@ export default defineConfig({
 			rollupOptions: {
 				output: {
 					entryFileNames: (entryInfo) => {
+						// console.log('entryInfo', entryInfo);
 						// .astroファイルのパスを抽出
 						const astroPath = entryInfo.moduleIds.find((id) =>
 							id.includes(".astro"),
@@ -55,6 +57,7 @@ export default defineConfig({
 								return `assets/[ext]/${fileName}`;
 							}
 						} else {
+							console.log("通りました");
 							return "assets/[ext]/[name][extname]";
 						}
 					},
