@@ -7,7 +7,7 @@ import { defineConfig } from 'astro/config';
 /**
  * CSS, JS を圧縮を制御（デフォルトでは false）
  */
-const SITE_COMPRESSED = process.env.COMPRESS_ASSETS;
+const MODE = process.env.MODE as 'development' | 'production';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,13 +20,12 @@ export default defineConfig({
 	},
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
-		inlineStylesheets: SITE_COMPRESSED === 'true' ? 'always' : 'never',
-
+		inlineStylesheets: MODE === 'production' ? 'always' : 'never',
 		// assets: "assets/js",
 	},
 	vite: {
 		build: {
-			minify: SITE_COMPRESSED === 'true' && true,
+			minify: MODE === 'production' && true,
 			rollupOptions: {
 				output: {
 					// 複数のエントリがあるファイルに対しての指定（.js ではエラーが出る -> https://github.com/withastro/astro/issues/5976）
