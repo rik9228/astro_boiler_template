@@ -66,7 +66,6 @@ export default defineConfig({
 								return `assets/[ext]/${fileName}`;
 							}
 						} else {
-							console.log("通りました");
 							return "assets/[ext]/[name][extname]";
 						}
 					},
