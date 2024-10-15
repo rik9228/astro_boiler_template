@@ -3,8 +3,3 @@
 
 export const SITE_TITLE = "Astro_ボイラーテンプレート";
 export const SITE_DESCRIPTION = "ディスクリプションが入ります";
-
-/**
- * CSS, JS を圧縮を制御（デフォルトでは false）
- */
-export const SITE_COMPRESSED = false;

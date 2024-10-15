@@ -3,7 +3,11 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 // @ts-check
 import { defineConfig } from "astro/config";
-import { SITE_COMPRESSED } from "./src/scripts/consts";
+
+/**
+ * CSS, JS を圧縮を制御（デフォルトでは false）
+ */
+const SITE_COMPRESSED = import.meta.env.COMPRESS_ASSETS;
 
 // https://astro.build/config
 export default defineConfig({
