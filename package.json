@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
-    "release": "COMPRESS_ASSETS=true astro check && astro build",
+    "build": "astro check && COMPRESS_ASSETS=false astro build",
+    "release": "astro check && COMPRESS_ASSETS=true astro build",
     "preview": "astro preview",
     "astro": "astro",
     "gen:component": "scaffdog generate"
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.1",
+    "cross-env": "^7.0.3",
     "prettier-plugin-astro": "^0.14.1",
     "scaffdog": "^4.1.0"
   },

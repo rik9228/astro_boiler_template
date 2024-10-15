@@ -7,21 +7,22 @@ import { defineConfig } from "astro/config";
 /**
  * CSS, JS を圧縮を制御（デフォルトでは false）
  */
-const SITE_COMPRESSED = import.meta.env.COMPRESS_ASSETS;
+const SITE_COMPRESSED = process.env.COMPRESS_ASSETS;
 
 // https://astro.build/config
 export default defineConfig({
-	compressHTML: false, // HTMLを圧縮する場合はこちらを変更
+	compressHTML: false, // HTMLも圧縮する場合はこちらを変更
 	site: "https://example.com",
 	integrations: [sitemap(), react()],
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
-		inlineStylesheets: SITE_COMPRESSED && "always",
+		inlineStylesheets: SITE_COMPRESSED === "true" ? "always" : "never",
+
 		// assets: "assets/js",
 	},
 	vite: {
 		build: {
-			minify: SITE_COMPRESSED && true,
+			minify: SITE_COMPRESSED === "true" && true,
 			rollupOptions: {
 				output: {
 					// 複数のエントリがあるファイルに対しての指定（.js ではエラーが出る -> https://github.com/withastro/astro/issues/5976）
