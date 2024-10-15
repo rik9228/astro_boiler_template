@@ -5,9 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && biome format --write ./src && COMPRESS_ASSETS=false astro build && [ -d dist ] && prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore || true",
+    "release": "astro check && biome format --write ./src && COMPRESS_ASSETS=true astro build && [ -d dist ] && prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore || true",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "biome": "biome format --write ./src",
+    "prettier": "prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore",
+    "gen:component": "scaffdog generate"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -21,15 +25,21 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.79.1",
-    "typescript": "^5.6.2",
-    "zenn-content-css": "^0.1.157"
+    "typescript": "^5.6.2"
   },
   "devDependencies": {
-    "@astrojs/cloudflare": "^11.0.5",
     "@biomejs/biome": "1.9.1",
-    "prettier-plugin-astro": "^0.14.1"
+    "autoprefixer": "^10.4.20",
+    "postcss-sort-media-queries": "^5.2.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "scaffdog": "^4.1.0",
+    "vite-plugin-singlefile": "^2.0.2"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "volta": {
+    "node": "20.14.0",
+    "npm": "10.7.0"
+  }
 }
