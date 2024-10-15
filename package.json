@@ -9,6 +9,7 @@
     "release": "astro check && COMPRESS_ASSETS=true astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "prettier": "prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore",
     "gen:component": "scaffdog generate"
   },
   "dependencies": {
@@ -25,11 +26,17 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.1",
-    "cross-env": "^7.0.3",
+    "autoprefixer": "^10.4.20",
+    "postcss-sort-media-queries": "^5.2.0",
     "prettier-plugin-astro": "^0.14.1",
-    "scaffdog": "^4.1.0"
+    "scaffdog": "^4.1.0",
+    "vite-plugin-singlefile": "^2.0.2"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "volta": {
+    "node": "20.14.0",
+    "npm": "10.7.0"
+  }
 }
