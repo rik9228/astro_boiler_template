@@ -13,13 +13,18 @@ export default defineConfig({
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
 		inlineStylesheets: "never",
-		assets: "assets/js",
+		// assets: "assets/js",
 	},
 	vite: {
 		build: {
 			minify: SITE_COMPRESSED && true,
 			rollupOptions: {
 				output: {
+					// 複数のエントリがあるファイルに対しての指定（.js ではエラーが出る -> https://github.com/withastro/astro/issues/5976）
+					chunkFileNames(chunkInfo) {
+						// console.log('chunkInfo', chunkInfo);
+						return "assets/js/[name].mjs";
+					},
 					entryFileNames: (entryInfo) => {
 						// console.log('entryInfo', entryInfo);
 						// .astroファイルのパスを抽出
