@@ -22,15 +22,19 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
   <body>
     <slot />
 
-    <!-- Astroテンプレート で実行する場合は、ファイル名Layout.astro_astro_type_script_index_0_lang.BrJN-ZXM のようなファイル名として生成される。 -> astro オプションに属する -->
-    <!-- それぞれのページで単純に.ts ファイルを読み込んで実行する場合は、ファイル名.hash.js として生成される。 -> vite option に属する -->
-    <!-- それぞれ１か所のページでのみ使用される場合は、ページごとの処理は、直接ビルド後のhtmlファイルにスクリプトが挿入されるが、2か所以上で実行された場合は、別ファイルとして切り出される。 -->
+    {
+      /* 
 
-    <!-- <script>
-      import { fixViewport } from 'src/scripts/util/fixViewport';
+      原則：.astroコンポーネントではスクリプトを書かない
+      理由：ビルド後のファイル名の変更等が効かないため
+      背景：astro テンプレートで独自に書いたスクリプトはastro のビルドオプションに属される。より柔軟性を考慮し、チャンクファイル（複数のエントリーポイントがあるスクリプト）については、
+      scripts配下の「common.ts」に集約し、それぞれのページごとでimportして使用する形を原則とする。
+      ※ここでビルドされたスクリプトは astro.config > `vite.build.rollupOption.output.chunkfileNames` より指定が可能
 
-      window.addEventListener('resize', fixViewport);
-      fixViewport();
-    </script> -->
+      - Astroテンプレート で実行する場合は、ファイル名Layout.astro_astro_type_script_index_0_lang.BrJN-ZXM のようなファイル名として生成される。 -> astro オプションに属する
+      - それぞれのページで単純に.ts ファイルを読み込んで実行する場合は、ファイル名.hash.js として生成される。 -> vite option に属する
+      - それぞれ１か所のページでのみ使用される場合は、ページごとの処理は、直接ビルド後のhtmlファイルにスクリプトが挿入されるが、2か所以上で実行された場合は、別ファイルとして切り出される。
+    */
+    }
   </body>
 </html>

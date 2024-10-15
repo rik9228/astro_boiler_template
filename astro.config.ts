@@ -11,12 +11,12 @@ const SITE_COMPRESSED = import.meta.env.COMPRESS_ASSETS;
 
 // https://astro.build/config
 export default defineConfig({
-	compressHTML: SITE_COMPRESSED && true, // HTMLを圧縮する場合はこちらを変更
+	compressHTML: false, // HTMLを圧縮する場合はこちらを変更
 	site: "https://example.com",
 	integrations: [sitemap(), react()],
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
-		inlineStylesheets: "never",
+		inlineStylesheets: SITE_COMPRESSED && "always",
 		// assets: "assets/js",
 	},
 	vite: {
