@@ -6,14 +6,14 @@ import type { MicroCMSClient } from 'microcms-ts-sdk';
  * 型名を小文字のキーに変換するユーティリティ型
  */
 type LowercaseKeys<T> = {
-  [K in keyof T as `${Lowercase<string & K>}s`]: T[K];
+	[K in keyof T as `${Lowercase<string & K>}s`]: T[K];
 };
 
 interface Endpoints {
-  // API in list format.
-  list: LowercaseKeys<Schemas>;
-  // API in object format
-  object: LowercaseKeys<Schemas>;
+	// API in list format.
+	list: LowercaseKeys<Schemas>;
+	// API in object format
+	object: LowercaseKeys<Schemas>;
 }
 
 /**
@@ -22,14 +22,16 @@ interface Endpoints {
  * @returns {MicroCMSClient<Endpoints>}
  */
 export const client = (runtime?: any): MicroCMSClient<Endpoints> => {
-  const serviceDomain =
-    runtime?.env?.MICROCMS_SERVICE_DOMAIN ?? import.meta.env.MICROCMS_SERVICE_DOMAIN;
-  const apiKey = runtime?.env?.MICROCMS_API_KEY ?? import.meta.env.MICROCMS_API_KEY;
+	const serviceDomain =
+		runtime?.env?.MICROCMS_SERVICE_DOMAIN ??
+		import.meta.env.MICROCMS_SERVICE_DOMAIN;
+	const apiKey =
+		runtime?.env?.MICROCMS_API_KEY ?? import.meta.env.MICROCMS_API_KEY;
 
-  return createClient({
-    serviceDomain,
-    apiKey,
-  });
+	return createClient({
+		serviceDomain,
+		apiKey,
+	});
 };
 
 // Schema type inference

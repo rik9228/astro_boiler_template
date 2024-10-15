@@ -1,6 +1,6 @@
-import { fixViewport } from "./util/fixViewport";
+import { fixViewport } from './util/fixViewport';
 
 export function Common() {
-	console.log("共通スクリプトです");
+	console.log('共通スクリプトです');
 	fixViewport();
 }

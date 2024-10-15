@@ -1,1 +1,1 @@
-export type { Schemas } from "./Schemas";
+export type { Schemas } from './Schemas';

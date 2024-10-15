@@ -1,7 +1,7 @@
-import { Common } from "@/scripts/common";
+import { Common } from '@/scripts/common';
 
 export function Top() {
 	Common();
-	console.log("huga");
+	console.log('huga');
 	return 2;
 }
