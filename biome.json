@@ -1,33 +1,36 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.1/schema.json",
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": false
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": []
+  "$schema": "https://biomejs.dev/schemas/1.5.2/schema.json",
+  "organizeImports": {
+    "enabled": false
   },
   "formatter": {
-    "enabled": true,
-    "indentStyle": "tab"
+    "ignore": ["env.d.ts"]
   },
-  "organizeImports": {
-    "enabled": true
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "lineEnding": "lf"
+    }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
-      "style": {
-        "noUselessElse": "off"
-      }
+      "recommended": true
     }
   },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double"
+  "overrides": [
+    {
+      "include": ["astro.config.ts"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noExplicitAny": "off"
+          },
+          "style": {
+            "noUselessElse": "off"
+          }
+        }
+      }
     }
-  }
+  ]
 }

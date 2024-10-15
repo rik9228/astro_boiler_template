@@ -48,7 +48,6 @@ export default defineConfig({
 						// .astroファイルでない場合はデフォルトの命名規則を使用
 						return "assets/js/[name].js";
 					},
-					// biome-ignore lint:
 					assetFileNames: (assetInfo: any) => {
 						const extType = assetInfo.name.split(".").at(-1);
 						if (/css/i.test(extType)) {
