@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && biome format --write ./src && COMPRESS_ASSETS=false astro build && [ -d dist ] && prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore || true",
-    "release": "astro check && biome format --write ./src && COMPRESS_ASSETS=true astro build && [ -d dist ] && prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore || true",
+    "build": "astro check && MODE=development astro build",
+    "release": "astro check && MODE=production astro build",
     "preview": "astro preview",
     "astro": "astro",
     "biome": "biome format --write ./src",

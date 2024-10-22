@@ -1,3 +1,4 @@
+import { SITE_URL as site } from './src/scripts/consts';
 // import cloudflare from "@astrojs/cloudflare";
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
@@ -7,12 +8,12 @@ import { defineConfig } from 'astro/config';
 /**
  * CSS, JS を圧縮を制御（デフォルトでは false）
  */
-const SITE_COMPRESSED = process.env.COMPRESS_ASSETS;
+const MODE = process.env.MODE as 'development' | 'production';
 
 // https://astro.build/config
 export default defineConfig({
 	compressHTML: false, // HTMLも圧縮する場合はこちらを変更
-	site: 'https://example.com',
+	site,
 	integrations: [sitemap(), react()],
 	server: {
 		host: true,
@@ -20,16 +21,15 @@ export default defineConfig({
 	},
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
-		inlineStylesheets: SITE_COMPRESSED === 'true' ? 'always' : 'never',
-
+		inlineStylesheets: MODE === 'production' ? 'always' : 'never',
 		// assets: "assets/js",
 	},
 	vite: {
 		build: {
-			minify: SITE_COMPRESSED === 'true' && true,
+			minify: MODE === 'production' && true,
 			rollupOptions: {
 				output: {
-					// 複数のエントリがあるファイルに対しての指定（.js ではエラーが出る -> https://github.com/withastro/astro/issues/5976）
+					// 複数のエントリがあるファイルに対しての指定（astro.config.js ではエラーが出る -> https://github.com/withastro/astro/issues/5976）
 					chunkFileNames(chunkInfo) {
 						// console.log('chunkInfo', chunkInfo);
 						return 'assets/js/[name].mjs';
