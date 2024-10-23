@@ -32,8 +32,7 @@
     "html-validate": "^8.24.2",
     "postcss-sort-media-queries": "^5.2.0",
     "prettier-plugin-astro": "^0.14.1",
-    "scaffdog": "^4.1.0",
-    "vite-plugin-singlefile": "^2.0.2"
+    "scaffdog": "^4.1.0"
   },
   "keywords": [],
   "author": "",

@@ -57,9 +57,6 @@ importers:
       scaffdog:
         specifier: ^4.1.0
         version: 4.1.0
-      vite-plugin-singlefile:
-        specifier: ^2.0.2
-        version: 2.0.2(rollup@4.22.5)(vite@5.4.8(@types/node@22.7.4)(sass@1.79.4))
 
 packages:
 
@@ -2508,13 +2505,6 @@ packages:
 
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
-
-  vite-plugin-singlefile@2.0.2:
-    resolution: {integrity: sha512-Z2ou6HcvED5CF0hM+vcFSaFa+klyS8RyyLxW0PbMRLnMbvzTI6ueWyxdYNFhpuXZgz/aj6+E/dHFTdEcw6gb9w==}
-    engines: {node: '>18.0.0'}
-    peerDependencies:
-      rollup: ^4.18.0
-      vite: ^5.3.1
 
   vite@5.4.8:
     resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
@@ -5690,12 +5680,6 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
-
-  vite-plugin-singlefile@2.0.2(rollup@4.22.5)(vite@5.4.8(@types/node@22.7.4)(sass@1.79.4)):
-    dependencies:
-      micromatch: 4.0.8
-      rollup: 4.22.5
-      vite: 5.4.8(@types/node@22.7.4)(sass@1.79.4)
 
   vite@5.4.8(@types/node@22.7.4)(sass@1.79.4):
     dependencies:
