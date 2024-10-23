@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && MODE=development astro build",
-    "release": "astro check && MODE=production astro build",
+    "build": "astro check && MODE=development astro build && html-validate dist",
+    "release": "astro check && MODE=production astro build && html-validate dist",
     "preview": "astro preview",
     "astro": "astro",
     "biome": "biome format --write ./src",
     "prettier": "prettier --write './dist/**/*.{css,html}' --ignore-path .prettierignore",
-    "gen:component": "scaffdog generate"
+    "gen:component": "scaffdog generate",
+    "htmlvalidate": "html-validate dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
@@ -30,10 +31,10 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.1",
     "autoprefixer": "^10.4.20",
+    "html-validate": "^8.24.2",
     "postcss-sort-media-queries": "^5.2.0",
     "prettier-plugin-astro": "^0.14.1",
-    "scaffdog": "^4.1.0",
-    "vite-plugin-singlefile": "^2.0.2"
+    "scaffdog": "^4.1.0"
   },
   "keywords": [],
   "author": "",
