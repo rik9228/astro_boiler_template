@@ -28,10 +28,29 @@
 }
 
 html {
-  font-family: 'Atkinson', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans',
-    Meiryo, sans-serif;
+  font-family: 'Atkinson', 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   font-weight: 700;
   color: var(--color-gray);
+
+  // リキッドレイアウトの指定↓↓↓
+  @include mq('sm-only') {
+    font-size: 2.6667vw;
+    /*
+        計算式：　10(px) / 375(px) * 100 = 3.125
+        画面幅375pxの時に "font-size: 10px" 相当になる
+      */
+  }
+
+  @include mq('md') {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  // リキッドレイアウトの指定↓↓↓
+  @include mq('sm-only') {
+    font-size: 1.6rem;
+  }
 }
 
 img {
@@ -44,13 +63,11 @@ time {
 }
 
 main {
-  // common styles
-
-  @include mq(sm-only) {
-    padding: get_vw(16) 0;
+  @include mq('sm-only') {
+    padding: 1.6rem 0;
   }
-  @include mq(md) {
-    padding: min(get_vw(40, 767), 40px) 0;
+  @include mq('md') {
+    padding: 4rem 0;
   }
 }
 
