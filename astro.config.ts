@@ -1,6 +1,6 @@
 import { SITE_URL as site } from './src/scripts/consts';
 // import cloudflare from "@astrojs/cloudflare";
-import react from '@astrojs/react';
+// import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 // @ts-check
 import { defineConfig } from 'astro/config';
@@ -10,11 +10,13 @@ import { defineConfig } from 'astro/config';
  */
 const MODE = process.env.MODE as 'development' | 'production';
 
+const siteMapEnabled = false;
+
 // https://astro.build/config
 export default defineConfig({
 	compressHTML: false, // HTMLも圧縮する場合はこちらを変更
 	site,
-	integrations: [sitemap(), react()],
+	integrations: [siteMapEnabled ? sitemap() : null],
 	server: {
 		host: true,
 		open: true,

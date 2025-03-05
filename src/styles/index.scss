@@ -1,0 +1,21 @@
+/*! ファイル名を定義する（！を忘れない）
+buildOutputFile: 'index';
+*/
+
+// =========================================
+// Common（共通スタイル）
+// =========================================
+@use './common';
+
+
+h1 {
+  text-align: center;
+  // @include areaMaximixe;
+}
+
+a {
+  text-align: center;
+  display: block;
+  margin-top: 16px;
+  text-decoration: underline;
+}
