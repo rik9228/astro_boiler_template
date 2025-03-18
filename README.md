@@ -35,3 +35,9 @@ All commands are run from the root of the project, from a terminal:
 
 - Make sure you have a `.env` file on hand based on the `.env.example` file
   - `microcms` branch
+
+## How to use
+
+- [Docs](https://docs.astro.build/ja/getting-started/)
+- [Images](https://docs.astro.build/ja/guides/images/)
+- [Fonts](https://docs.astro.build/ja/guides/fonts/)

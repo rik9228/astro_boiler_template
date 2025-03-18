@@ -70,8 +70,13 @@ export default defineConfig({
 								const fileName = assetInfo.name.replace('-index', '');
 								return `assets/[ext]/${fileName}`;
 							}
+						} else if (
+							/\.(jpg|jpeg|png|gif|bmp|svg|webp|ico|tiff)$/.test(assetInfo.name)
+						) {
+							// 画像ファイルの場合の処理
+							return `assets/images/[name]`;
 						} else {
-							return 'assets/[ext]/[name][extname]';
+							return 'assets/[ext]/[name][ext]';
 						}
 					},
 				},
