@@ -6,8 +6,9 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      ":/*": ["./*"]
     }
   },
-  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.astro", "src/**/*.tsx", "env.d.ts"]
+  "include": ["/**/*.ts", "/*.ts", "/**/*.astro", "/**/*.tsx", "env.d.ts"]
 }

@@ -1,34 +1,33 @@
-import { SITE_URL as site } from './src/scripts/consts';
 // import cloudflare from "@astrojs/cloudflare";
 // import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import basicSsl from "@vitejs/plugin-basic-ssl";
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { MODE, SITE_CONFIG } from './site';
 
-/**
- * CSS, JS を圧縮を制御（デフォルトでは false）
- */
-const MODE = process.env.MODE as 'development' | 'production';
-
-const siteMapEnabled = false;
+const { SITE_URL, MINIFY, SITE_MAP, HTTPS_SERVER, BASE_DIR, OUT_DIR } = SITE_CONFIG;
 
 // https://astro.build/config
 export default defineConfig({
-	compressHTML: false, // HTMLも圧縮する場合はこちらを変更
-	site,
-	integrations: [siteMapEnabled ? sitemap() : null],
+	compressHTML: MINIFY,
+	site: MODE === "production" ? SITE_URL.PROD : MODE === "staging" ? SITE_URL.STG : SITE_URL.DEV,
+	base: BASE_DIR,
+	outDir: OUT_DIR,
+	integrations: [SITE_MAP ? sitemap() : null],
 	server: {
 		host: true,
 		open: true,
 	},
 	// output: "hybrid", // オンデマンドレンダリングを使用する場合は有効にしてください
 	build: {
-		inlineStylesheets: MODE === 'production' ? 'always' : 'never',
+		inlineStylesheets: 'never',
 		// assets: "assets/js",
 	},
 	vite: {
+		plugins: [HTTPS_SERVER && basicSsl()],
 		build: {
-			minify: MODE === 'production' && true,
+			minify: MINIFY,
 			rollupOptions: {
 				output: {
 					// 複数のエントリがあるファイルに対しての指定（astro.config.js ではエラーが出る -> https://github.com/withastro/astro/issues/5976）
@@ -60,7 +59,7 @@ export default defineConfig({
 							//assetInfo.sourceの中から文字列を探して値を取得する
 							let firstLine = assetInfo.source
 								.split('\n')
-								.find((line) => line.includes('buildOutputFile:'));
+								.find((line: string) => line.includes('buildOutputFile:'));
 							if (firstLine) {
 								firstLine = firstLine.split('buildOutputFile:')[1].trim();
 								//ダブルクォーテーションとセミコロンを削除

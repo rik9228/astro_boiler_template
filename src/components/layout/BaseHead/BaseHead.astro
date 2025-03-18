@@ -3,32 +3,38 @@ interface Props {
   title: string;
   description: string;
   image?: string;
+  keywords?: string;
 }
+import { SITE_CONFIG, MODE } from ':/site';
+const { SITE_URL, ASSETS_DIR } = SITE_CONFIG;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonical = new URL(pathname, Astro.site);
 
-const { title, description, image = '/ogp.jpg' } = Astro.props;
+const { title, description, image = '/ogp.jpg', keywords } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
-<link rel="preload" href="/assets/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/assets/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href={`${ASSETS_DIR}/fonts/atkinson-regular.woff`} as="font" type="font/woff" crossorigin />
+<link rel="preload" href={`${ASSETS_DIR}/fonts/atkinson-bold.woff`} as="font" type="font/woff" crossorigin />
 
 <!-- preloads file othres -->
 
+<!-- Index URL -->
+<link rel="index" href={MODE === 'production' ? SITE_URL.PROD : MODE === 'staging' ? SITE_URL.STG : SITE_URL.DEV} />
 <!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={canonical} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && MODE=development astro build && html-validate dist",
-    "release": "astro check && MODE=production astro build && html-validate dist",
+    "dev": "MODE=development astro dev",
+    "staging": "astro check && MODE=staging astro build && html-validate dist",
+    "build": "astro check && MODE=production astro build && html-validate dist",
     "preview": "astro preview",
     "astro": "astro",
     "biome": "biome format --write ./src",
@@ -28,6 +27,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.1",
+    "@vitejs/plugin-basic-ssl": "^2.0.0",
     "autoprefixer": "^10.4.20",
     "html-validate": "^8.24.2",
     "postcss-sort-media-queries": "^5.2.0",

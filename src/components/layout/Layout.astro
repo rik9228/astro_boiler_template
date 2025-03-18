@@ -1,25 +1,24 @@
 ---
-interface Props {
-  title?: string;
-  description?: string;
-}
+import { SITE_CONFIG } from ':/site';
+import BaseHead from '@/components/layout/BaseHead/BaseHead.astro';
+import BaseScript from '@/components/layout/BaseScript/BaseScript.astro';
 
 // Import the global style sheet file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 // import '@/styles/global.scss';
 
-import BaseHead from '@/components/layout/BaseHead/BaseHead.astro';
+export const IMG_PATH_COMMON = '/assets/images/common/';
 
-import { SITE_DESCRIPTION, SITE_TITLE } from '@/scripts/consts';
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const { WEB_SITE_NAME, WEB_SITE_DESCRIPTION, WEB_SITE_KEYWORDS } = SITE_CONFIG;
+const { title = WEB_SITE_NAME, description = WEB_SITE_DESCRIPTION, keywords = WEB_SITE_KEYWORDS, PAGE_ID } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="ja">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} keywords={keywords} />
   </head>
-  <body>
+  <body class={`page-${PAGE_ID}`}>
     <slot />
 
     {
@@ -36,5 +35,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
       - それぞれ１か所のページでのみ使用される場合は、ページごとの処理は、直接ビルド後のhtmlファイルにスクリプトが挿入されるが、2か所以上で実行された場合は、別ファイルとして切り出される。
     */
     }
+
+    <BaseScript />
   </body>
 </html>

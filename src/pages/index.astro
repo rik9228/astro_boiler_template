@@ -1,11 +1,18 @@
 ---
+import { SITE_CONFIG } from ':/site';
 import Layout from '@/components/layout/Layout.astro';
 import '@/styles/index.scss';
+
+const PAGE_ID = 'index';
+const { ASSETS_DIR } = SITE_CONFIG;
 ---
 
-<Layout>
+<Layout PAGE_ID={PAGE_ID}>
   <main>
     <h1>Astro サイトテンプレートです</h1>
+    <div class="">
+      <img src={`${ASSETS_DIR}/images/sample.jpg`} alt="" width="" height="" />
+    </div>
     <a href="https://github.com/rik9228/astro_boiler_template/tree/main" target="_blank">リポジトリはこちら</a>
   </main>
 </Layout>

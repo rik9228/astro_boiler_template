@@ -2,25 +2,39 @@
 buildOutputFile: 'index';
 */
 
+$page_class: 'page-index';
+
 // =========================================
 // Common（共通スタイル）
 // =========================================
 @use './common';
 
-h1 {
-  text-align: center;
-  font-size: 2.2rem;
+// -----------------------------------------------------------
+//  Section Name: index
+// -----------------------------------------------------------
 
-  @include mq(md) {
-    font-size: 4rem;
+.#{$page_class} {
+  h1 {
+    text-align: center;
+    font-size: 2.2rem;
+
+    @include mq(md) {
+      font-size: 4rem;
+    }
+    // @include areaMaximixe;
   }
-  // @include areaMaximixe;
-}
 
-a {
-  text-align: center;
-  display: block;
-  margin-top: 1.6rem;
-  font-size: 1.6rem;
-  text-decoration: underline;
+  a {
+    text-align: center;
+    display: block;
+    margin-top: 1.6rem;
+    font-size: 1.6rem;
+    text-decoration: underline;
+  }
+
+  img {
+    margin-inline: auto;
+    display: block;
+    margin-top: 16px;
+  }
 }
