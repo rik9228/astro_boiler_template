@@ -4,16 +4,14 @@ import { getImage } from 'astro:assets';
  * 1. ここに背景画像を定義する
  * 2. scssファイルの中でCSS変数として使用する
  */
-import imageFooterBlue from '@/assets/images/bg_01.jpg';
-import imageFooterGreen from '@/assets/images/bg_02.jpg';
-import imageHeaderBlue from '@/assets/images/bg_03.jpg';
+import imageHeaderPc from '@/assets/images/index/bg_01.jpg';
+import imageHeaderMobile from '@/assets/images/index/bg_02.jpg';
 
 // ... それを名前を付けて参照できるようにする。
 // `header_desktop` => `--imgurl-header-desktop` で参照
 const imageMap = {
-  header_desktop: imageHeaderBlue,　// --imgurl-header-desktop
-  footer_desktop: imageFooterBlue,　// --imgurl-footer-desktop
-  footer_mobile: imageFooterGreen,　// --imgurl-footer-mobile
+  header_desktop: imageHeaderPc,　// --imgurl-header-desktop
+  header_mobile: imageHeaderMobile,　// --imgurl-footer-desktop
 } as Record<string, ImageMetadata>;
 
 export const imagePath = async (src: ImageMetadata, type = 'webp') => (await getImage({ src, format: type })).src;

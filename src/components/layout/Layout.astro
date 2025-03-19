@@ -23,7 +23,7 @@ const { title = WEB_SITE_NAME, description = WEB_SITE_DESCRIPTION, keywords = WE
 <html lang="ja">
   <head>
     <BaseHead title={title} description={description} keywords={keywords} />
-    <style is:global define:vars={{ ...images, pageId: PAGE_ID }}></style>
+    <style is:global define:vars={{ ...images }}></style>
   </head>
   <body class={`page-${PAGE_ID}`}>
     <slot />

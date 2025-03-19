@@ -48,7 +48,7 @@ $page_class: 'page-index';
     background-size: cover;
 
     @include mq(md) {
-      background-image: var(--imgurl-footer-mobile);
+      background-image: var(--imgurl-header-mobile);
     }
   }
 }
