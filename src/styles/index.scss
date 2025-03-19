@@ -37,4 +37,18 @@ $page_class: 'page-index';
     display: block;
     margin-top: 16px;
   }
+
+  /**
+  * 背景画像の使用方法
+  */
+  .bg {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-image: var(--imgurl-header-desktop);
+    background-size: cover;
+
+    @include mq(md) {
+      background-image: var(--imgurl-footer-mobile);
+    }
+  }
 }

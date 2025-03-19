@@ -1,17 +1,19 @@
 ---
-interface Props {
-  title: string;
-  description: string;
-  image?: string;
+export interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
   keywords?: string;
 }
+
 import { SITE_CONFIG, MODE } from ':/site';
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/scripts/consts';
 const { SITE_URL, ASSETS_DIR } = SITE_CONFIG;
 
 const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const canonical = new URL(pathname, Astro.site);
 
-const { title, description, image = '/ogp.jpg', keywords } = Astro.props;
+const { title = SITE_TITLE, description = SITE_DESCRIPTION, ogImage = '/ogp.jpg', keywords } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -41,13 +43,13 @@ const { title, description, image = '/ogp.jpg', keywords } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={new URL(ogImage, Astro.url)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image" content={new URL(ogImage, Astro.url)} />
 
 <!-- additional style -->

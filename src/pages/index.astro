@@ -1,10 +1,9 @@
 ---
-import { SITE_CONFIG } from ':/site';
 import Layout from '@/components/layout/Layout.astro';
 import '@/styles/index.scss';
 import { Image } from 'astro:assets';
-import sample from '@/assets/images/sample.jpg';
 
+import sample from '@/assets/images/sample.jpg';
 const PAGE_ID = 'index';
 ---
 
@@ -13,6 +12,7 @@ const PAGE_ID = 'index';
     <h1>Astro サイトテンプレートです</h1>
     <div class="">
       <Image src={sample} alt="" />
+      <div class="bg"></div>
       <a href="https://github.com/rik9228/astro_boiler_template/tree/main" target="_blank">リポジトリはこちら</a>
     </div>
   </main>

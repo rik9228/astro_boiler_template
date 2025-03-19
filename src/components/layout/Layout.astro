@@ -1,13 +1,19 @@
 ---
 import { SITE_CONFIG } from ':/site';
+import { images } from '@/scripts/util/images';
 import BaseHead from '@/components/layout/BaseHead/BaseHead.astro';
 import BaseScript from '@/components/layout/BaseScript/BaseScript.astro';
+import { type Props as Head } from './BaseHead/BaseHead.astro';
 
 // Import the global style sheet file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 // import '@/styles/global.scss';
 
 export const IMG_PATH_COMMON = '/assets/images/common/';
+
+interface Props extends Head {
+  PAGE_ID?: string;
+}
 
 const { WEB_SITE_NAME, WEB_SITE_DESCRIPTION, WEB_SITE_KEYWORDS } = SITE_CONFIG;
 const { title = WEB_SITE_NAME, description = WEB_SITE_DESCRIPTION, keywords = WEB_SITE_KEYWORDS, PAGE_ID } = Astro.props;
@@ -17,6 +23,7 @@ const { title = WEB_SITE_NAME, description = WEB_SITE_DESCRIPTION, keywords = WE
 <html lang="ja">
   <head>
     <BaseHead title={title} description={description} keywords={keywords} />
+    <style is:global define:vars={{ ...images, pageId: PAGE_ID }}></style>
   </head>
   <body class={`page-${PAGE_ID}`}>
     <slot />
