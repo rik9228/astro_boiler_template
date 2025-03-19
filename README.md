@@ -41,3 +41,27 @@ All commands are run from the root of the project, from a terminal:
 - [Docs](https://docs.astro.build/ja/getting-started/)
 - [Images](https://docs.astro.build/ja/guides/images/)
 - [Fonts](https://docs.astro.build/ja/guides/fonts/)
+
+## 画像の使用について
+
+可能な限り、[Imagesコンポーネント](https://docs.astro.build/ja/guides/images/)を使用すること。
+
+```tsx
+
+---
+import { Image } from 'astro:assets';
+import sample from '@/assets/images/sample.jpg';
+---
+
+<Image src={sample} alt="" />
+```
+
+また背景画像は、[image.ts](./src/scripts/util/images.ts)内側で使用する画像をimportすること。
+
+-> 吐き出し後は画像に対してハッシュ名が付与される。
+
+[参考](https://zenn.dev/takkyun/articles/cc33c1425cc3b4)
+
+## フォントやその他のファイルについて
+
+`/public/assets` 配下にそれぞれ格納すること
