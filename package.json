@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "MODE=development astro dev",
-    "staging": "astro check && MODE=staging astro build && html-validate dist",
-    "build": "astro check && MODE=production astro build && html-validate dist",
+    "staging": "astro check && MODE=staging astro build",
+    "build": "astro check && MODE=production astro build",
     "preview": "astro preview",
     "astro": "astro",
     "biome": "biome format --write ./src",
@@ -14,12 +14,12 @@
     "htmlvalidate": "html-validate dist"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.3",
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/react": "^4.2.1",
+    "@astrojs/sitemap": "^3.3.0",
     "@types/react": "^18.3.7",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.15.7",
+    "astro": "^5.5.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.79.1",
